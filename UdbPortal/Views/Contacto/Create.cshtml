@@ -1,0 +1,54 @@
+﻿@model UdbPortal.Models.ContextModels.Consultum
+
+@{
+    ViewData["Title"] = "Contacto";
+}
+
+
+<div class="row align-items-center justify-content-center">
+
+    <div class="col-md-8">
+        <h1 class="mt-5">Consulta</h1>
+
+        <h4>Envíanos tu consulta</h4>
+        <hr />
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                <strong>¡Éxito! - </strong>@TempData["SuccessMessage"]
+            </div>
+        }
+        @if (TempData["FailedMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                <strong>¡Éxito! - </strong>@TempData["FailedMessage"]
+            </div>
+        }
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="IdTipo" class="control-label"></label>
+                <select asp-for="IdTipo" class="form-control" asp-items="ViewBag.Tipo">
+                    <option>Seleccione el tipo de consulta...</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" placeholder="email@ejemplo.com">
+                <span asp-validation-for="Email" class="badge bg-danger px-2 py-1 mb-3"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Consulta" class="form-label"></label>
+                <textarea asp-for="Consulta" class="form-control" placeholder="Ingrese todos los detalles de su consulta..." rows="5"></textarea>
+                <span asp-validation-for="Consulta" class="badge bg-danger px-2 py-1 mb-3"></span>
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Enviar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

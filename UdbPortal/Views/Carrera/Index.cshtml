@@ -1,0 +1,37 @@
+﻿@model IEnumerable<UdbPortal.Models.ViewModels.CarrerasViewModel>
+
+@{
+    ViewData["Title"] = "Carreras";
+}
+
+<div class="row align-items-center justify-content-center">
+    <div class="col-md-8 mt-5">
+        <div class="accordion" id="accordionCarreras">
+
+            @foreach (var item in Model) 
+            {
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading @item.TipoCarrera">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse+@item.TipoCarrera" aria-expanded="true" aria-controls="collapse+@item.TipoCarrera">
+                            @item.TipoCarrera
+                        </button>
+                    </h2>
+
+                    <div id="collapse+@item.TipoCarrera" class="accordion-collapse collapse show" aria-labelledby="headingIngenierias+@item.TipoCarrera" data-bs-parent="#accordionCarreras">
+                        <div class="accordion-body">
+                            <ul class="list-group">
+                                @foreach (var subItem in item.Carreras)
+                                {
+                                    <li class="list-group-item">
+                                        <h5>@subItem.Titulo</h5>
+                                        <p>@subItem.Descripcion</p>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

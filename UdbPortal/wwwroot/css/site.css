@@ -1,0 +1,96 @@
+html,
+body {
+    height: 100%;
+}
+
+.containerBody {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    background-color: #4c50a9; /* Azul */
+}
+
+.navbar {
+    padding:0;
+    background-color: #ffc107; /* Oro */
+    color: #005aab; /* Azul */
+
+}
+
+.container-fluid{
+    color:white;
+}
+
+.articulos {
+    color: #33389a;
+    background-color: #d5d519;
+}
+
+.articulos p {
+    color: black;
+}
+
+.badge {
+    color: black;
+}
+
+.carousel .carousel-item img {
+    height: 500px; /* Ajusta la altura deseada */
+    object-fit: cover;
+}
+
+.article-container {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.article {
+    display: inline-block;
+    width: 300px;
+    margin-right: 10px;
+    vertical-align: top;
+}
+
+.article img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+div.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+footer{
+    color: white;
+}
+
+.footerLink{
+    color:white;
+}

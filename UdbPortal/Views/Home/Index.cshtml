@@ -1,0 +1,91 @@
+﻿@model UdbPortal.Models.ContextModels.Base
+
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+
+<div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active" aria-current="true" aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item">
+            <img src="https://www.udbvirtual.edu.sv/lib/img/nuestra_institucion/1.jpg" class="d-block w-100" alt="Img2">
+        </div>
+        <div class="carousel-item active">
+            <img src="https://www.udbvirtual.edu.sv/lib/img/slider/slider_3.jpg" class="d-block w-100" alt="Img3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="row">
+    <div class="col-md ratio ratio-16x9">
+        <iframe src="@Model.UrlContenido" title="Presentación UDB" allow="autoplay"></iframe>
+    </div>
+
+    <div class="col-md mt-sm-4">
+        <div class="row align-items-center h-100 justify-content-center">
+            <div class="col-9">
+                <span class="badge bg-success px-2 py-1 shadow-1-strong mb-3">Importante.</span>
+                <div class="row justify-content-center">
+                    <h4><strong>Universidad Don Bosco</strong></h4>
+                    <p class="text">
+                        @Model.Descripcion
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row articulos justify-content-center pt-5 pb-5">
+    <div class="col-md-7">
+        <h2><strong>Sección de Noticias.</strong></h2>
+        @foreach (var item in Model.Noticia)
+        {
+            <div class="card">
+                <div class="row g-0 align-items-center pe-5">
+                    <div class="col-md-4">
+                        <img src="@item.Imagen" alt="Imagen de la noticia" class="img-fluid">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <span class="badge bg-info px-2 py-1 shadow-1-strong mb-3">Noticia</span>
+                            <h5 class="card-title">@item.Titulo</h5>
+                            <p class="card-text">@item.Descripcion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        function Left() {
+            const container = document.querySelector('.article-container');
+            container.scrollTo({
+                left: container.scrollLeft - 350, // Cambiar el valor para ajustar la cantidad de desplazamiento
+                behavior: 'smooth'
+            });
+        }
+
+        function Right() {
+            const container = document.querySelector('.article-container');
+            container.scrollTo({
+                left: container.scrollLeft + 350, // Cambiar el valor para ajustar la cantidad de desplazamiento
+                behavior: 'smooth'
+            });
+        }
+    </script>
+}
